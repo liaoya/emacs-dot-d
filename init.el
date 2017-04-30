@@ -13,13 +13,11 @@
 (require 'init-packages)
 (require 'init-ui)
 (require 'init-better-defaults)
-;(require 'init-keybindings)
-
+(require 'init-org)
 
 (defun open-init-file()
   (interactive)
   (find-file "~/.emacs.d/init.el"))
-(global-set-key (kbd "<f2>") 'open-init-file)
 
 (setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
 (load-file custom-file)

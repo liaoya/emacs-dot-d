@@ -3,8 +3,8 @@
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
-;;  (setq package-archives '(("gnu"   . "http://elpa.gnu.org/packages/")
-;;			   ("melpa-stable" . "http://stable.melpa.org/packages/"))))
+  ;;  (setq package-archives '(("gnu"   . "http://elpa.gnu.org/packages/")
+  ;;			   ("melpa-stable" . "http://stable.melpa.org/packages/"))))
   (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
 			   ("melpa-stable" . "http://elpa.emacs-china.org/melpa-stable/"))))
 
@@ -17,18 +17,13 @@
 		      swiper
 		      counsel
 		      smartparens
-		      ;; --- Major Mode ---
-		      js2-mode
-		      ;; --- Minor Mode ---
-		      nodejs-repl
-		      exec-path-from-shell
+		      popwin
 		      ;; --- Themes ---
 		      monokai-theme
 		      color-theme-sanityinc-solarized
-		      ;; solarized-theme
 		      ) "Default packages")
 
-			  
+
 (setq package-selected-packages my/packages)
 
 (defun my/packages-installed-p ()
@@ -47,9 +42,17 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
+(global-hungry-delete-mode)
+
 ;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (smartparens-global-mode t)
 (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
 
+(global-company-mode t)
+
+(load-theme 'sanityinc-solarized-light t)
+
+(require 'popwin)    ;;when require, wh(setq company-minimum-prefix-length 1)en not require
+(popwin-mode t)
 
 (provide 'init-packages)
