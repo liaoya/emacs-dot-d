@@ -4,47 +4,47 @@
   (require 'package)
   (package-initialize)
   ;;  (setq package-archives '(("gnu"   . "http://elpa.gnu.org/packages/")
-  ;;			   ("melpa-stable" . "http://stable.melpa.org/packages/"))))
+  ;;         ("melpa-stable" . "http://stable.melpa.org/packages/"))))
   (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-			   ("melpa-stable" . "http://elpa.emacs-china.org/melpa-stable/"))))
+                           ("melpa-stable" . "http://elpa.emacs-china.org/melpa-stable/"))))
 
 ;; Add Packages
 (defvar my/packages '(
-		      ;; --- Auto-completion ---
-		      company
-		      ;; --- Better Editor ---
-		      hungry-delete
-		      swiper
-		      counsel
-		      smartparens
-		      popwin
-		      ;; --- Modes ---
-			  markdown-mode
-			  markdown-toc
-		      dockerfile-mode
-		      go-mode
-		      groovy-mode
-		      web-mode
-		      yaml-mode
-		      ;; --- Themes ---
-		      monokai-theme
-		      color-theme-sanityinc-solarized
-		      ) "Default packages")
+                      ;; --- Auto-completion ---
+                      company
+                      ;; --- Better Editor ---
+                      hungry-delete
+                      swiper
+                      counsel
+                      smartparens
+                      popwin
+                      ;; --- Modes ---
+                      markdown-mode
+                      markdown-toc
+                      dockerfile-mode
+                      go-mode
+                      groovy-mode
+                      web-mode
+                      yaml-mode
+                      ;; --- Themes ---
+                      monokai-theme
+                      color-theme-sanityinc-solarized
+                      ) "Default packages")
 
 
 (setq package-selected-packages my/packages)
 
 (defun my/packages-installed-p ()
   (loop for pkg in my/packages
-	when (not (package-installed-p pkg)) do (return nil)
-	finally (return t)))
+        when (not (package-installed-p pkg)) do (return nil)
+        finally (return t)))
 
 (unless (my/packages-installed-p)
   (message "%s" "Refreshing package database...")
   (package-refresh-contents)
   (dolist (pkg my/packages)
     (when (not (package-installed-p pkg))
-      (package-install pkg))))			  
+      (package-install pkg))))
 
 ;; Find Executable Path on OS X
 (when (memq window-system '(mac ns))

@@ -8,6 +8,7 @@
  '(delete-selection-mode 1)
  '(global-auto-revert-mode t)
  '(global-linum-mode 1)
+ '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(make-backup-files nil)
  '(package-selected-packages (quote (company)))
