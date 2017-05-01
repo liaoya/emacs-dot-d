@@ -18,6 +18,12 @@
 		      counsel
 		      smartparens
 		      popwin
+		      ;; --- Modes ---
+		      dockerfile-mode
+		      go-mode
+		      groovy-mode
+		      web-mode
+		      yaml-mode
 		      ;; --- Themes ---
 		      monokai-theme
 		      color-theme-sanityinc-solarized
@@ -42,17 +48,34 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
+;; hungry-delete package
 (global-hungry-delete-mode)
 
 ;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (smartparens-global-mode t)
-(sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+(sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
 
+;; company mode
 (global-company-mode t)
 
+;; color-theme-sanityinc-solarized package
 (load-theme 'sanityinc-solarized-light t)
 
-(require 'popwin)    ;;when require, wh(setq company-minimum-prefix-length 1)en not require
+;; popwin package
+(require 'popwin)
 (popwin-mode t)
+
+;; web-mode package
+(setq auto-mode-alist
+      (append
+       '(("\\.js\\'" . js2-mode))
+       '(("\\.html\\'" . web-mode))
+       auto-mode-alist))
+(defun my-web-mode-indent-setup ()
+  (setq web-mode-markup-indent-offset 2) ; web-mode, html tag in html file
+  (setq web-mode-css-indent-offset 2)    ; web-mode, css in html file
+  (setq web-mode-code-indent-offset 2)   ; web-mode, js code in html file
+  )
+(add-hook 'web-mode-hook 'my-web-mode-indent-setup)
 
 (provide 'init-packages)

@@ -14,6 +14,7 @@
  '(recentf-max-menu-items 25)
  '(recentf-mode t)
  '(ring-bell-function (quote ignore))
+ '(tab-width 2)
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

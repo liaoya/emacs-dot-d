@@ -12,7 +12,7 @@
 
 (require 'init-packages)
 (require 'init-ui)
-(require 'init-better-defaults)
+(require 'init-defaults)
 (require 'init-org)
 
 (defun open-init-file()
