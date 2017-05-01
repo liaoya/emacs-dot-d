@@ -19,6 +19,8 @@
 		      smartparens
 		      popwin
 		      ;; --- Modes ---
+			  markdown-mode
+			  markdown-toc
 		      dockerfile-mode
 		      go-mode
 		      groovy-mode
