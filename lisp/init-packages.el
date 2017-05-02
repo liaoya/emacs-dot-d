@@ -3,10 +3,10 @@
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
-  ;;  (setq package-archives '(("gnu"   . "http://elpa.gnu.org/packages/")
-  ;;         ("melpa-stable" . "http://stable.melpa.org/packages/"))))
-  (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                           ("melpa-stable" . "http://elpa.emacs-china.org/melpa-stable/"))))
+  (setq package-archives '(("gnu"   . "http://elpa.gnu.org/packages/")
+                           ("melpa-stable" . "http://stable.melpa.org/packages/"))))
+;;  (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+;;                           ("melpa-stable" . "http://elpa.emacs-china.org/melpa-stable/"))))
 
 ;; Add Packages
 (defvar my/packages '(

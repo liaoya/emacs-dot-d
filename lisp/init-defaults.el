@@ -82,4 +82,8 @@
 
 (global-set-key (kbd "M-s o") 'occur-dwim)
 
+(require 'server)
+(or (server-running-p)
+    (server-start))
+
 (provide 'init-defaults)
