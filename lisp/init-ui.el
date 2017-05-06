@@ -1,4 +1,4 @@
-(scroll-bar-mode -1)
+;; (scroll-bar-mode -1)
 
 ;; Set Frame Maximized
 (setq  initial-frame-alist (quote ((fullscreen . maximized))))
